@@ -1,0 +1,15 @@
+C:\Users\liaohp\source\repos\AppAnalsys\AppAnalsys\obj\Debug\AppAnalsys.csprojResolveAssemblyReference.cache
+C:\Users\liaohp\source\repos\AppAnalsys\AppAnalsys\obj\Debug\AppAnalsys.Form1.resources
+C:\Users\liaohp\source\repos\AppAnalsys\AppAnalsys\obj\Debug\AppAnalsys.Properties.Resources.resources
+C:\Users\liaohp\source\repos\AppAnalsys\AppAnalsys\obj\Debug\AppAnalsys.csproj.GenerateResource.Cache
+C:\Users\liaohp\source\repos\AppAnalsys\AppAnalsys\obj\Debug\AppAnalsys.csproj.CoreCompileInputs.cache
+C:\Users\liaohp\source\repos\AppAnalsys\AppAnalsys\bin\Debug\libs\Aspose.Cells.dll
+C:\Users\liaohp\source\repos\AppAnalsys\AppAnalsys\bin\Debug\导出摸板.xlsx
+C:\Users\liaohp\source\repos\AppAnalsys\AppAnalsys\bin\Debug\AppAnalsys.exe.config
+C:\Users\liaohp\source\repos\AppAnalsys\AppAnalsys\bin\Debug\AppAnalsys.exe
+C:\Users\liaohp\source\repos\AppAnalsys\AppAnalsys\bin\Debug\AppAnalsys.pdb
+C:\Users\liaohp\source\repos\AppAnalsys\AppAnalsys\bin\Debug\Aspose.Cells.dll
+C:\Users\liaohp\source\repos\AppAnalsys\AppAnalsys\bin\Debug\Newtonsoft.Json.dll
+C:\Users\liaohp\source\repos\AppAnalsys\AppAnalsys\bin\Debug\Newtonsoft.Json.xml
+C:\Users\liaohp\source\repos\AppAnalsys\AppAnalsys\obj\Debug\AppAnalsys.exe
+C:\Users\liaohp\source\repos\AppAnalsys\AppAnalsys\obj\Debug\AppAnalsys.pdb
