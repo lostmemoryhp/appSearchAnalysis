@@ -35,7 +35,12 @@ namespace AppAnalsys
         /// 版本名称
         /// </summary>
         public string VersionName { get; set; }
-        
+
+        /// <summary>
+        /// 更新时间
+        /// </summary>
+        public string UpdateTime { get; set; }
+
         /// <summary>
         /// 下载次数
         /// </summary>

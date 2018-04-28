@@ -1,4 +1,5 @@
 ﻿using Aspose.Cells;
+using HtmlAgilityPack;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -22,6 +23,7 @@ namespace AppAnalsys
     {
         string LIST_URL = "https://search.appstore.vivo.com.cn/port/packages/?apps_per_page=20&screensize=720_1280&pictype=webp&u=1234567890&patch_sup=1&plat_key_ver=0&imei=867182033235142&nt=WIFI&id=0&platApkVer=0&build_number=Flyme+6.2.0.4A&elapsedtime=202744204&plateformVersionName=null&sshow=110&density=2.0&cs=0&av=24&an=7.0&plateformVersion=0&app_version=1141&platApkVerName=null&key={0}&page_index={1}&target=local&cfrom=2&model=M6&s=2%7C3528779343";
         string APP_URL = "https://appc.baidu.com/uiserver?usertype=1&cen=cuid_cut_cua_uid&abi=armeabi-v7a&action=detail&pkname=com.baidu.appsearch&pname={0}&province=qivtklO_ValxRH8868B3kjiheug_RBuRodkqA&disp=Flyme+6.2.0.4A&gms=false&from=1000561u&cct=q8vJkluJVagxRSiIqOSCkluheaghMHf3odfqA&pu=ctv%401%2Ccfrom%401000561u%2Ccua%40_avLC_aE-i4qywoUfpw1zyPLsioeuL8bxLqqC%2Ccuid%400iSH8_aU2iYLav8S082Xigufv8g2aHuIgiSku_aHv86XuviJ0avKigamvi_Ka2fQga2VfqqqB%2Ccut%40ruL-izuYD8gBNQzt5Z5mA%2Cosname%40baiduappsearch&network=WF&operator=460004&psize=3&country=CN&is_support_webp=true&cll=gu2RNYalBfgoueiy0a2GNguABfANTYFiB&uid=0iSH8_aU2iYLav8S082Xigufv8g2aHuIgiSku_aHv8q-uHixguvk8gua28_OOv853dqqC&f=urlhandle&language=zh&part=main&apn=&platform_version_id=24&ver=16794628&&crid=1520501469198&native_api=1&location=q8vJkluJVagxRSiIqOSCkluheaghMHf3odfqA&bdussid=&ptl=hps";
+        string UPDATETIME_URL = "http://info.appstore.vivo.com.cn/detail/{0}";
         List<ExportedModel> searchResults = new List<ExportedModel>();
         List<ExportedModel> existsApps = new List<ExportedModel>();
         public Form1()
@@ -60,6 +62,15 @@ namespace AppAnalsys
             MessageBox.Show("处理完成！");
             btnStart.Enabled = true;
             txtKeyword.Enabled = true;
+        }
+
+
+        public string getUpdateTime(WebClient client, int packageId) {
+            //todo 返回yyyyMMdd形式的日期
+            //HtmlWeb web = new HtmlWeb();
+            //var document  = web.Load(string.Format(UPDATETIME_URL, packageId));
+            //document.get
+            return "";
         }
 
         public void ReadExistsApp(string keyword)
@@ -187,6 +198,7 @@ namespace AppAnalsys
                         var appInfo = JsonConvert.DeserializeObject<AppResult>(appJson);
                         bool isOnline = !string.IsNullOrEmpty(appInfo.result.data.data.appinfo.package);
                         existApp.IsOnline = isOnline ? "是" : "";
+                        existApp.UpdateTime = getUpdateTime(existApp.PackageId);
 
                     }
                     catch (Exception ex)
