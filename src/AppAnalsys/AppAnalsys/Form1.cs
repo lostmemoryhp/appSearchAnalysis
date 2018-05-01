@@ -1,5 +1,4 @@
 ﻿using Aspose.Cells;
-using HtmlAgilityPack;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -57,20 +56,45 @@ namespace AppAnalsys
             {
                 int pageIndex = 1;
                 ProcessPage(client, keyword, pageIndex);
+                ExportExcel(keyword, client);
             }
-            ExportExcel(keyword);
+            //List<String> list;
+            //list.AsParallel().AsSequential().Select()
             MessageBox.Show("处理完成！");
             btnStart.Enabled = true;
             txtKeyword.Enabled = true;
         }
 
 
-        public string getUpdateTime(WebClient client, int packageId) {
-            //todo 返回yyyyMMdd形式的日期
-            //HtmlWeb web = new HtmlWeb();
-            //var document  = web.Load(string.Format(UPDATETIME_URL, packageId));
-            //document.get
-            return "";
+        public string getUpdateTime(int packageId)
+        {
+            var url = string.Format(UPDATETIME_URL, packageId);
+            //using (var client = new WebClient())
+            //{
+            var html = GetHtml(url, Encoding.UTF8); //client.DownloadString(url);
+            var doc = NSoup.NSoupClient.Parse(html);
+            var time = doc.Select(".main-content .tab-content .tab-page .comment .ly-fr small").Html();
+            return time.Trim().Substring(5, 10);
+            //}
+
+        }
+
+        public string isOnline(string packagename)
+        {
+            try
+            {
+                var appUrl = string.Format(APP_URL, packagename);
+                var appJson = GetHtml(appUrl, Encoding.UTF8);
+                //var obj = JsonConvert.DeserializeObject(appJson) as JObject;
+                var appInfo = JsonConvert.DeserializeObject<AppResult>(appJson);
+                bool isOnline = !string.IsNullOrEmpty(appInfo.result.data.data.appinfo.package);
+                return isOnline ? "是" : "";
+            }
+            catch (Exception e)
+            {
+                return "";
+            }
+
         }
 
         public void ReadExistsApp(string keyword)
@@ -102,11 +126,14 @@ namespace AppAnalsys
 
 
 
-        public void ExportExcel(string keyword)
+        public void ExportExcel(string keyword, WebClient client)
         {
             var list = new List<ExportedModel>();
             list.AddRange(this.existsApps.OrderByDescending(x => x.IsOnline).ThenBy(x => x.AppName));
             list.AddRange(this.searchResults.OrderByDescending(x => x.IsOnline).ThenBy(x => x.AppName));
+
+            list.AsParallel().ForAll(x => x.UpdateTime = getUpdateTime(x.PackageId));
+            list.AsParallel().ForAll(x => x.IsOnline = isOnline(x.PackageName));
             var templatePath = Path.Combine(Environment.CurrentDirectory, "导出摸板.xlsx");
             DataSet dataSource = new DataSet();
             var dt = new DataTable("App");
@@ -120,6 +147,7 @@ namespace AppAnalsys
             dt.Columns.Add("DownloadCount", typeof(string));
             dt.Columns.Add("IsOnline", typeof(string));
             dt.Columns.Add("UserContent", typeof(string));
+            dt.Columns.Add("UpdateTime", typeof(string));
             foreach (var item in list)
             {
                 var row = dt.NewRow();
@@ -132,6 +160,7 @@ namespace AppAnalsys
                 row["VersionCode"] = item.VersionCode;
                 row["VersionName"] = item.VersionName;
                 row["DownloadCount"] = item.DownloadCount;
+                row["UpdateTime"] = item.UpdateTime;
                 dt.Rows.Add(row);
             }
             WorkbookDesigner designer = new WorkbookDesigner();
@@ -190,21 +219,7 @@ namespace AppAnalsys
                         };
                         searchResults.Add(existApp);
                     }
-                    try
-                    {
-                        var appUrl = string.Format(APP_URL, app.package_name);
-                        var appJson = GetHtml(appUrl, Encoding.UTF8);
-                        var obj = JsonConvert.DeserializeObject(appJson) as JObject;
-                        var appInfo = JsonConvert.DeserializeObject<AppResult>(appJson);
-                        bool isOnline = !string.IsNullOrEmpty(appInfo.result.data.data.appinfo.package);
-                        existApp.IsOnline = isOnline ? "是" : "";
-                        existApp.UpdateTime = getUpdateTime(existApp.PackageId);
 
-                    }
-                    catch (Exception ex)
-                    {
-                        existApp.IsOnline = "";
-                    }
 
                 }
                 if (result.pageNo < result.maxPage)
