@@ -1,0 +1,17 @@
+D:\projects\yuxu\appSearchAnalysis-master\src\AppAnalsys\AppAnalsys\bin\Release\导出摸板.xlsx
+D:\projects\yuxu\appSearchAnalysis-master\src\AppAnalsys\AppAnalsys\bin\Release\AppAnalsys.exe.config
+D:\projects\yuxu\appSearchAnalysis-master\src\AppAnalsys\AppAnalsys\bin\Release\AppAnalsys.exe
+D:\projects\yuxu\appSearchAnalysis-master\src\AppAnalsys\AppAnalsys\bin\Release\AppAnalsys.pdb
+D:\projects\yuxu\appSearchAnalysis-master\src\AppAnalsys\AppAnalsys\bin\Release\Aspose.Cells.dll
+D:\projects\yuxu\appSearchAnalysis-master\src\AppAnalsys\AppAnalsys\bin\Release\Newtonsoft.Json.dll
+D:\projects\yuxu\appSearchAnalysis-master\src\AppAnalsys\AppAnalsys\bin\Release\NSoup.dll
+D:\projects\yuxu\appSearchAnalysis-master\src\AppAnalsys\AppAnalsys\bin\Release\Newtonsoft.Json.xml
+D:\projects\yuxu\appSearchAnalysis-master\src\AppAnalsys\AppAnalsys\obj\Release\AppAnalsys.Form1.resources
+D:\projects\yuxu\appSearchAnalysis-master\src\AppAnalsys\AppAnalsys\obj\Release\AppAnalsys.FrmWandoujia.resources
+D:\projects\yuxu\appSearchAnalysis-master\src\AppAnalsys\AppAnalsys\obj\Release\AppAnalsys.Properties.Resources.resources
+D:\projects\yuxu\appSearchAnalysis-master\src\AppAnalsys\AppAnalsys\obj\Release\AppAnalsys.csproj.GenerateResource.cache
+D:\projects\yuxu\appSearchAnalysis-master\src\AppAnalsys\AppAnalsys\obj\Release\AppAnalsys.csproj.CoreCompileInputs.cache
+D:\projects\yuxu\appSearchAnalysis-master\src\AppAnalsys\AppAnalsys\obj\Release\AppAnalsys.csproj.CopyComplete
+D:\projects\yuxu\appSearchAnalysis-master\src\AppAnalsys\AppAnalsys\obj\Release\AppAnalsys.exe
+D:\projects\yuxu\appSearchAnalysis-master\src\AppAnalsys\AppAnalsys\obj\Release\AppAnalsys.pdb
+D:\projects\yuxu\appSearchAnalysis-master\src\AppAnalsys\AppAnalsys\bin\Release\template_wandoujia.xlsx

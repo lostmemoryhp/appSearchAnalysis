@@ -71,7 +71,7 @@ namespace AppAnalsys
             var url = string.Format(UPDATETIME_URL, packageId);
             //using (var client = new WebClient())
             //{
-            var html = GetHtml(url, Encoding.UTF8); //client.DownloadString(url);
+            var html = HttpUtil.GetHtml(url, Encoding.UTF8); //client.DownloadString(url);
             var doc = NSoup.NSoupClient.Parse(html);
             var time = doc.Select(".main-content .tab-content .tab-page .comment .ly-fr small").Html();
             return time.Trim().Substring(5, 10);
@@ -84,7 +84,7 @@ namespace AppAnalsys
             try
             {
                 var appUrl = string.Format(APP_URL, packagename);
-                var appJson = GetHtml(appUrl, Encoding.UTF8);
+                var appJson = HttpUtil.GetHtml(appUrl, Encoding.UTF8);
                 //var obj = JsonConvert.DeserializeObject(appJson) as JObject;
                 var appInfo = JsonConvert.DeserializeObject<AppResult>(appJson);
                 bool isOnline = !string.IsNullOrEmpty(appInfo.result.data.data.appinfo.package);
@@ -233,49 +233,7 @@ namespace AppAnalsys
 
 
 
-        /// <summary>
-        /// 获取源代码, 需要把获取到的https页面字节流通过gzip解压，用这种方法解决了乱码问题。
-        /// </summary>
-        /// <param name="url"></param>
-        /// <returns></returns>
-        public static string GetHtml(string url, Encoding encoding)
-        {
-            HttpWebRequest request = null;
-            HttpWebResponse response = null;
-            StreamReader reader = null;
-            try
-            {
-                request = (HttpWebRequest)WebRequest.Create(url);
-                request.Timeout = 20000;
-                request.AllowAutoRedirect = false;
-                response = (HttpWebResponse)request.GetResponse();
-                if (response.StatusCode == HttpStatusCode.OK && response.ContentLength < 1024 * 1024)
-                {
-                    if (response.ContentEncoding != null && response.ContentEncoding.Equals("gzip", StringComparison.InvariantCultureIgnoreCase))
-                        reader = new StreamReader(new GZipStream(response.GetResponseStream(), CompressionMode.Decompress), encoding);
-                    else
-                        reader = new StreamReader(response.GetResponseStream(), encoding);
-                    string html = reader.ReadToEnd();
-                    return html;
-                }
-            }
-            catch
-            {
-            }
-            finally
-            {
-                if (response != null)
-                {
-                    response.Close();
-                    response = null;
-                }
-                if (reader != null)
-                    reader.Close();
-                if (request != null)
-                    request = null;
-            }
-            return string.Empty;
-        }
+     
 
     }
 }
