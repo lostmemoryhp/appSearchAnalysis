@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace AppAnalsys.wandoujia
 {
-   public  class WandoujiaExportModel
+    public class WandoujiaExportModel
     {
         /// <summary>
         /// 包名
         /// </summary>
         public string PackageName { get; set; }
-      
+
         /// <summary>
         /// 应用名称
         /// </summary>
@@ -31,17 +31,35 @@ namespace AppAnalsys.wandoujia
         /// <summary>
         /// 下载次数1
         /// </summary>
-        public string DownloadCount1 { get; set; }
-        
+        public double DownloadCount1 { get; set; }
+
         /// <summary>
         /// 下载次数2
         /// </summary>
-        public string DownloadCount2 { get; set; }
+        public double DownloadCount2 { get; set; }
 
         /// <summary>
         /// app详情页
         /// </summary>
         public String AppUrl { get; set; }
 
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+            if (ReferenceEquals(this, obj))
+            {
+                return true;
+            }
+            var other = obj as WandoujiaExportModel;
+            if (other == null)
+            {
+                return false;
+            }
+            return PackageName == other.PackageName;
+        }
     }
 }

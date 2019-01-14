@@ -13,6 +13,7 @@ C:\Users\liaohp\source\repos\AppAnalsys\AppAnalsys\bin\Debug\Newtonsoft.Json.dll
 C:\Users\liaohp\source\repos\AppAnalsys\AppAnalsys\bin\Debug\Newtonsoft.Json.xml
 C:\Users\liaohp\source\repos\AppAnalsys\AppAnalsys\obj\Debug\AppAnalsys.exe
 C:\Users\liaohp\source\repos\AppAnalsys\AppAnalsys\obj\Debug\AppAnalsys.pdb
+D:\projects\yuxu\appSearchAnalysis-master\src\AppAnalsys\AppAnalsys\bin\Debug\template_wandoujia.xlsx
 D:\projects\yuxu\appSearchAnalysis-master\src\AppAnalsys\AppAnalsys\bin\Debug\导出摸板.xlsx
 D:\projects\yuxu\appSearchAnalysis-master\src\AppAnalsys\AppAnalsys\bin\Debug\AppAnalsys.exe.config
 D:\projects\yuxu\appSearchAnalysis-master\src\AppAnalsys\AppAnalsys\bin\Debug\AppAnalsys.exe
@@ -29,5 +30,3 @@ D:\projects\yuxu\appSearchAnalysis-master\src\AppAnalsys\AppAnalsys\obj\Debug\Ap
 D:\projects\yuxu\appSearchAnalysis-master\src\AppAnalsys\AppAnalsys\obj\Debug\AppAnalsys.csproj.CopyComplete
 D:\projects\yuxu\appSearchAnalysis-master\src\AppAnalsys\AppAnalsys\obj\Debug\AppAnalsys.exe
 D:\projects\yuxu\appSearchAnalysis-master\src\AppAnalsys\AppAnalsys\obj\Debug\AppAnalsys.pdb
-D:\projects\yuxu\appSearchAnalysis-master\src\AppAnalsys\AppAnalsys\obj\Debug\AppAnalsys.csprojAssemblyReference.cache
-D:\projects\yuxu\appSearchAnalysis-master\src\AppAnalsys\AppAnalsys\bin\Debug\template_wandoujia.xlsx
